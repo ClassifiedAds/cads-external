@@ -764,8 +764,8 @@ img { border: 0; }
 #wrapper #container #right .section .box .content .pager {
 	display : block;
 	background : url(../gfx/tabs.gif) repeat-x left top;
-	padding : 4px 20px;
-	font : 11px/20px Arial;
+	padding : 4px;
+	font : 14px/20px Arial;
 	font-weight : bold;
 	height : 22px;
 }
@@ -776,8 +776,8 @@ img { border: 0; }
 	background : url(../gfx/table-btn.gif) repeat-x left top transparent;
 	border : 1px solid #e6e6e6;
 	padding : 0 7px;
-	margin : 0 0 0 3px;
-	font : 11px/20px Arial;
+	margin : 0;
+	font : 14px/20px Arial;
 	cursor : pointer;
 	color : #000000;
 	text-transform : uppercase;
@@ -786,7 +786,7 @@ img { border: 0; }
 }
 
 #wrapper #container #right .section .box .content .pager a:first-child {
-	margin : 0 0 0 5px;
+	margin : 0;
 }
 
 #wrapper #container #right .section .box .content .pager a:hover,
