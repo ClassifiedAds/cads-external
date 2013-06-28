@@ -49,7 +49,7 @@
             $.ajax({
                 url: "./adbuys_ajat.php",
                 type: "GET",
-                data: "col=" + $data.col + "&bid=" + $data.bid + "&data=" + encode(value),
+                data: "col=" + $data.col + "&buy_id=" + $data.buy_id + "&data=" + encode(value),
                 success: onSuccess,
                 error: onError
             });
@@ -97,7 +97,7 @@
 
     function onSuccess(data, textStatus, jqXHR) {
         data = data.split('\n');
-        id = data[0] + data[1]; // col + bid
+        id = data[0] + data[1]; // col + buy_id
         $viewer = $('#v' + id);
         $input = $('#i' + id);
 
@@ -117,7 +117,7 @@
         return {
             type: id.substring(0, 1),
             col: id.substring(1, 2),
-            bid: id.substring(2),
+            buy_id: id.substring(2),
             id: id.substring(1)
         };
     }
