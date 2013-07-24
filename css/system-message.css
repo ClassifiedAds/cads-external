@@ -27,7 +27,6 @@ Version: 1.0
 
 .message span {
 	display : block;
-	background : url(../gfx/system-icon.png) no-repeat 98% center;
 	padding : 13px 0;
 	font : 12px/1.0em Arial;
 }
