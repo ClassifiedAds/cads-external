@@ -127,7 +127,9 @@ if (jQuery) (function ($) {
             dropdown.css({
                 left: dropdown.hasClass('dropdown-anchor-right') ?
                     trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
-                top: trigger.offset().top + trigger.outerHeight() + vOffset
+                // top: trigger.offset().top + trigger.outerHeight() + vOffset
+                // hardcoded so that it works with the floating search bar
+                top: 48
             });
         }
     }
