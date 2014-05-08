@@ -124,12 +124,20 @@ if (jQuery) (function ($) {
             });
         } else {
             // ...or relative to document
+
+            // check for a position:fixed parent and adjust as needed with fixedHeight
+            var fixedHeight = 0;
+            trigger.parents().each(function(){
+                if ($(this).css("position") === "fixed" ) {
+                    fixedHeight = $(this).offset().top;
+                    return;
+                }
+            });
+
             dropdown.css({
                 left: dropdown.hasClass('dropdown-anchor-right') ?
                     trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
-                // top: trigger.offset().top + trigger.outerHeight() + vOffset
-                // hardcoded so that it works with the floating search bar
-                top: 48
+                top: trigger.offset().top + trigger.outerHeight() + vOffset - fixedHeight
             });
         }
     }
