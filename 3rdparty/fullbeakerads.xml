@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ads>
+	<publisher>Fullbeaker</publisher>
+	<publisherurl>http://www.fullbeaker.com</publisherurl>
+	<lastBuildDate>Wed, Sep 03 2012 13:01:00 PST</lastBuildDate>
+	<company><![CDATA[Fullbeaker.com]]></company>
+
+
+	<ad>
+		<id><![CDATA[ad_115]]></id>
+		<title><![CDATA[Simple Military VA Refinance Loans]]></title>
+		<category><![CDATA[463]]></category>
+		<description><![CDATA[<p>Get Qualified For A Military VA Refinance Loan Today! Simple Quick Savings. Only Takes 1 Minute</p>]]></description>
+		<clickurl><![CDATA[http://wvw.militaryvaloan.com/a/115]]></clickurl>
+		<imgsrc><![CDATA[/_/cads-mva-ad-campaign.png]]></imgsrc>
+	</ad>
+
+<!--
+	<ad>
+		<id><![CDATA[ad_2]]></id>
+		<title><![CDATA[Fullbeaker - Harp Mortgage Leads]]></title>
+		<category><![CDATA[462]]></category>
+		<description><![CDATA[<p>This is the 2nd Fullbeaker Ad -  HARP mortgage leads</p>]]></description>
+		<clickurl><![CDATA[http://www.fullbeaker.com/harp-leads.php]]></clickurl>
+		<imgsrc><![CDATA[http://www.classifiedads.com/_/0.gif]]></imgsrc>
+	</ad>
+
+	<ad>
+		<id><![CDATA[ad_3]]></id>
+		<title><![CDATA[Fullbeaker - VA Mortgage Leads]]></title>
+		<category><![CDATA[463]]></category>
+		<description><![CDATA[<p>This is the 3rd Fullbeaker Ad - VA Mortgage Leads</p>]]></description>
+		<clickurl><![CDATA[http://www.fhahomeloan.org/]]></clickurl>
+		<imgsrc><![CDATA[http://www.fhahomeloan.org/img/logo.png]]></imgsrc>
+	</ad>
+-->
+</ads>
