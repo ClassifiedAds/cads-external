@@ -77,14 +77,14 @@ if (jQuery) (function ($) {
     function hide(event) {
 
         // In some cases we don't hide them
-    var targetGroup = event ? $(event.target).parents().add(event.target) : null;
+        var targetGroup = event ? $(event.target).parents().add(event.target) : null;
 
         // Are we clicking anywhere in a dropdown?
         if (targetGroup && targetGroup.is('.dropdown')) {
             // Is it a dropdown menu?
             if (targetGroup.is('.dropdown-menu')) {
-                // Did we click on an option? If so close it.
-                if (!targetGroup.is('A')) return;
+                // Did we click on an option? If so close it
+                if (!targetGroup.is('A') || targetGroup.is('.dropdown-noclose')) return;
             } else {
                 // Nope, it's a panel. Leave it open.
                 return;
@@ -101,7 +101,13 @@ if (jQuery) (function ($) {
         });
 
         // Remove all dropdown-open classes
-        $(document).find('.dropdown-open').removeClass('dropdown-open');
+        var openGroup = $(document).find('.dropdown-open');
+        openGroup.removeClass('dropdown-open');
+
+        if (openGroup.length > 0 && event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
 
     }
 
@@ -132,8 +138,12 @@ if (jQuery) (function ($) {
         }
     }
 
+    var evname = 'click';
+    if( 'ontouchend' in window )
+        evname = 'touchend';
+
     $(document).on('click.dropdown', '[data-dropdown]', show);
-    $(document).on('click.dropdown', hide);
+    $(document).on(evname+'.dropdown', hide);
     $(window).on('resize', position);
 
 })(jQuery);
