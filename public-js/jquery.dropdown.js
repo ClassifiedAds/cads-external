@@ -12,6 +12,9 @@
 */
 if (jQuery) (function ($) {
 
+    // drag on?
+    var dragon = false;
+
     $.extend($.fn, {
         dropdown: function (method, data) {
 
@@ -76,37 +79,48 @@ if (jQuery) (function ($) {
 
     function hide(event) {
 
-        // In some cases we don't hide them
-        var targetGroup = event ? $(event.target).parents().add(event.target) : null;
-
-        // Are we clicking anywhere in a dropdown?
-        if (targetGroup && targetGroup.is('.dropdown')) {
-            // Is it a dropdown menu?
-            if (targetGroup.is('.dropdown-menu')) {
-                // Did we click on an option? If so close it
-                if (!targetGroup.is('A') || targetGroup.is('.dropdown-noclose')) return;
-            } else {
-                // Nope, it's a panel. Leave it open.
-                return;
-            }
+        if (dragon) {
+            dragon = false;
+            return;
         }
 
-        // Hide any dropdown that may be showing
-        $(document).find('.dropdown:visible').each(function () {
-            var dropdown = $(this);
-            dropdown
-                .hide()
-                .removeData('dropdown-trigger')
-                .trigger('hide', { dropdown: dropdown });
-        });
+        // In some cases we don't hide them
+        var targetGroup = event ? $(event.target).parents().add(event.target) : null;
+        var inDrop = (targetGroup && targetGroup.is('.dropdown'));
 
-        // Remove all dropdown-open classes
+        // Are we clicking anywhere in a dropdown?
+        if (inDrop) {
+            // Is it a dropdown menu?
+            if (!targetGroup.is('.dropdown-menu')) return;
+            // Did we click on an option? If so close it
+            if (!targetGroup.is('A')) return;
+            // Marked as noclose?
+            if (targetGroup.is('.dropdown-noclose')) return;
+        }
+
         var openGroup = $(document).find('.dropdown-open');
-        openGroup.removeClass('dropdown-open');
 
         if (openGroup.length > 0 && event) {
-            event.preventDefault();
-            event.stopPropagation();
+            setTimeout( function() {
+                // Hide any dropdown that may be showing
+                $(document).find('.dropdown:visible').each(function () {
+                    var dropdown = $(this);
+                    dropdown
+                        .hide()
+                        .removeData('dropdown-trigger')
+                        .trigger('hide', { dropdown: dropdown });
+                });
+
+                // Remove all dropdown-open classes
+                openGroup.removeClass('dropdown-open');
+            }, 500 );
+
+            if( event )
+            {
+                // no clicks outside the dropDown should register
+                if( !inDrop ) event.preventDefault();
+                event.stopPropagation();
+            }
         }
 
     }
@@ -144,6 +158,7 @@ if (jQuery) (function ($) {
 
     $(document).on('click.dropdown', '[data-dropdown]', show);
     $(document).on(evname+'.dropdown', hide);
+    $(document).on('touchmove.dropdown', function(e){ dragon = true; });
     $(window).on('resize', position);
 
 })(jQuery);
