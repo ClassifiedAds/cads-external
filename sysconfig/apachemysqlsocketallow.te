@@ -1,0 +1,11 @@
+
+module apachemysqlsocketallow 1.0;
+
+require {
+	type unconfined_t;
+	type httpd_t;
+	class unix_stream_socket connectto;
+}
+
+#============= httpd_t ==============
+allow httpd_t unconfined_t:unix_stream_socket connectto;
