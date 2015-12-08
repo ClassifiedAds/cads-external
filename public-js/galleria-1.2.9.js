@@ -903,7 +903,7 @@ var undef,
 
                     Utils.wait({
                         until: function() {
-                            return $loader.height() == 1;
+                            return $loader.height() > 0;
                         },
                         success: function() {
                             $loader.remove();
