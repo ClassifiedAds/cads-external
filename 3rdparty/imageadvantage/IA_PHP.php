@@ -176,7 +176,7 @@ function GetIAProductImageURL($pid, $pSearchString, $pTitle, $pDescription, $pAd
 	$lQS = "ss=" . strip_tags($pSearchString) ."&adv=" . strip_tags($pAdvertiser) . "&ttl=" . strip_tags($pTitle) . "&des=" .  strip_tags($pDescription);
 	$lQSEnc = doEncryption($lQS);
 	$ImgFileName = getImageFileName($pAdvertiser, $pSearchString, 0);
-	$FullURL = "http://cr0.worthathousandwords.com/" . $ImgFileName . "?pid=" . $pid . "&qs=" . $lQSEnc . "&d=" . urlencode($pDisplayURL);
+	$FullURL = "https://ca.imageadvantage.net/" . $ImgFileName . "?pid=" . $pid . "&qs=" . $lQSEnc . "&d=" . urlencode($pDisplayURL);
 	return $FullURL;
 }
 function GetIABrandImageURL($pid, $pAdvertiser)
@@ -191,7 +191,7 @@ function GetIABrandImageURL($pid, $pAdvertiser)
 	$lQS = "adv=" . strip_tags($pAdvertiser);
 	$lQSEnc = doEncryption($lQS);
 	$ImgFileName = getImageFileName($pAdvertiser, "", 1);
-	$FullURL = "http://cr0.worthathousandwords.com/" . $ImgFileName . "?pid=" . $pid . "&qs=" . $lQSEnc . "&d=" . urlencode($pDisplayURL);
+	$FullURL = "https://ca.imageadvantage.net/" . $ImgFileName . "?pid=" . $pid . "&qs=" . $lQSEnc . "&d=" . urlencode($pDisplayURL);
 	return $FullURL;
 }
 function GetIATrackingPixel()//($pid, $subID, $pageID, $pSearchString, $pAdvertiser1, $pAdvertiser2, ....)
