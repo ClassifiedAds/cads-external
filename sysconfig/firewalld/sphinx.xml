@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+    <short>Sphinx Server</short>
+    <description>Sphinx is an open source full text search server, designed from the ground up with performance, relevance (aka search quality), and integration simplicity in mind</description>
+    <port protocol="tcp" port="3312"/>
+</service>
