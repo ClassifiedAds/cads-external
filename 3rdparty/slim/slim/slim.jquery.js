@@ -2964,6 +2964,8 @@ var resourceIsBase64Data = function resourceIsBase64Data(resource) {
 
 var loadRemoteURL = function loadRemoteURL(fetcher, fetchRequestDecorator, loadRequestDecorator, url, err, cb) {
     fetcher = '' + fetcher + (fetcher.indexOf('?') !== -1 ? '&' : '?') + 'url=' + url;
+    loadURL(fetcher, loadRequestDecorator, cb, err);
+    return;
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', fetcher, true);
